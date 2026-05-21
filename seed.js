@@ -1,7 +1,11 @@
 // Seed script to populate the database with 510 study rooms
 require('dotenv').config();
 const dns = require('dns');
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4']);
+} catch (error) {
+  console.warn('Could not set DNS servers:', error.message);
+}
 
 const mongoose = require('mongoose');
 const Room = require('./models/Room');
