@@ -9,13 +9,21 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server.js",
+      "methods": [
+        "OPTIONS"
+      ],
       "headers": {
         "Access-Control-Allow-Origin": "https://studynook-client-pi.vercel.app",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type,Authorization",
         "Access-Control-Allow-Credentials": "true"
-      }
+      },
+      "status": 200,
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
     }
   ]
 }
