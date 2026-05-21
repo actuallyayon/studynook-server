@@ -19,12 +19,12 @@ connectDB();
 const app = express();
 
 // CORS configuration
-app.use(
-  cors({
-    origin: 'https://studynook-client-pi.vercel.app',
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: 'https://studynook-client-pi.vercel.app',
+  credentials: true,
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // Body parser
 app.use(express.json());
