@@ -23,10 +23,11 @@ const register = async (req, res) => {
     });
 
     // Generate token and set cookie (auto-login)
-    generateToken(res, user._id);
+    const token = generateToken(res, user._id);
 
     res.status(201).json({
       success: true,
+      token,
       user: {
         _id: user._id,
         name: user.name,
@@ -59,10 +60,11 @@ const login = async (req, res) => {
     }
 
     // Generate token and set cookie
-    generateToken(res, user._id);
+    const token = generateToken(res, user._id);
 
     res.json({
       success: true,
+      token,
       user: {
         _id: user._id,
         name: user.name,
@@ -102,10 +104,11 @@ const googleAuth = async (req, res) => {
     }
 
     // Generate token and set cookie
-    generateToken(res, user._id);
+    const token = generateToken(res, user._id);
 
     res.json({
       success: true,
+      token,
       user: {
         _id: user._id,
         name: user.name,
